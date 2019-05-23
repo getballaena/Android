@@ -21,7 +21,7 @@ class CouponFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.coupon_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_coupon, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

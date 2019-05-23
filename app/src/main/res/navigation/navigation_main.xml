@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_nav"
+            app:startDestination="@id/couponFragment">
+
+    <fragment
+            android:id="@+id/couponFragment"
+            android:name="com.papered.gorae.ui.main.coupon.CouponFragment"
+            android:label="coupon_fragment"
+            tools:layout="@layout/fragment_coupon"/>
+    <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.papered.gorae.ui.main.map.MapFragment"
+            android:label="fragment_map"
+            tools:layout="@layout/fragment_map"/>
+    <fragment
+            android:id="@+id/stampFragment"
+            android:name="com.papered.gorae.ui.main.stamp.StampFragment"
+            android:label="fragment_stamp"
+            tools:layout="@layout/fragment_stamp"/>
+</navigation>

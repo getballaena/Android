@@ -21,7 +21,7 @@ class StampFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.stamp_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_stamp, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
