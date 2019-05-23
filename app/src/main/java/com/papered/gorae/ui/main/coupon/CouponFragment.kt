@@ -8,26 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.papered.gorae.R
+import com.papered.gorae.adapter.CouponAdapter
+import com.papered.gorae.databinding.FragmentCouponBinding
+import com.papered.gorae.util.DataBindingFragment
+import kotlinx.android.synthetic.main.fragment_coupon.*
+import org.jetbrains.anko.startActivity
 
-class CouponFragment : Fragment() {
+class CouponFragment : DataBindingFragment<FragmentCouponBinding>() {
+    override val layoutId: Int
+        get() = R.layout.fragment_coupon
 
-    companion object {
-        fun newInstance() = CouponFragment()
-    }
-
-    private lateinit var viewModel: CouponViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_coupon, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(CouponViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel = ViewModelProviders.of(activity!!).get(CouponViewModel::class.java)
+        binding.vm = viewModel
+        main_coupon_rv.adapter = CouponAdapter(viewModel)
     }
 
 }
