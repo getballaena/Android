@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/navigation_map"
+            android:icon="@drawable/ic_nature_people_black_24dp"
+            android:title="@string/navigation_map"/>
+
+    <item
+            android:id="@+id/navigation_stamp"
+            android:icon="@drawable/ic_bookmark_black_24dp"
+            android:title="@string/navigation_stamp"/>
+
+    <item
+            android:id="@+id/navigation_coupon"
+            android:icon="@drawable/ic_card_giftcard_black_24dp"
+            android:title="@string/navigation_coupon"/>
+</menu>
