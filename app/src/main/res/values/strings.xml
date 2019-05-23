@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Gorae</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_map">땅따먹기</string>
+    <string name="navigation_stamp">스탬프</string>
+    <string name="navigation_coupon">쿠폰함</string>
 </resources>
