@@ -23,6 +23,7 @@ class CouponFragment : DataBindingFragment<FragmentCouponBinding>() {
         val viewModel = ViewModelProviders.of(activity!!).get(CouponViewModel::class.java)
         binding.vm = viewModel
         main_coupon_rv.adapter = CouponAdapter(viewModel)
+        viewModel.getCoupon()
     }
 
 }
