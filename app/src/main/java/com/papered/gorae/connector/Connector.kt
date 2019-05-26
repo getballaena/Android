@@ -9,7 +9,10 @@ val interceptor = HttpLoggingInterceptor().apply {
     level = HttpLoggingInterceptor.Level.BODY
 }
 
-val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+val client = OkHttpClient.Builder()
+    .addInterceptor(interceptor)
+    .addInterceptor(interceptor)
+    .build()
 
 val retrofit = Retrofit
     .Builder()
