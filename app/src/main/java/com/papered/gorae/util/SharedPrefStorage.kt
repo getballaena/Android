@@ -11,8 +11,7 @@ fun saveToken(context: Context, token: String) =
         it.apply()
     }
 
-fun getToken(context: Context): String =
-    "Bearer " + getPref(context).getString(key, "")
+fun getToken(context: Context): String = "" + getPref(context).getString(key, "")
 
 fun removeToken(context: Context) =
     getPref(context).edit().let {
