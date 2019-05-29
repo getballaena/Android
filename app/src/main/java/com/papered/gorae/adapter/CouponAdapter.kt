@@ -1,6 +1,6 @@
 package com.papered.gorae.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.papered.gorae.databinding.ItemCouponBinding
@@ -8,7 +8,7 @@ import com.papered.gorae.model.CouponModel
 import com.papered.gorae.ui.main.coupon.CouponViewModel
 
 
-class CouponAdapter(val viewModel: CouponViewModel) : RecyclerView.Adapter<CouponAdapter.ViewHolder>() {
+class CouponAdapter(val viewModel: CouponViewModel) : androidx.recyclerview.widget.RecyclerView.Adapter<CouponAdapter.ViewHolder>() {
 
     var item = arrayListOf<CouponModel>()
         set(value) {
@@ -27,7 +27,7 @@ class CouponAdapter(val viewModel: CouponViewModel) : RecyclerView.Adapter<Coupo
         viewHolder.bind()
     }
 
-    inner class ViewHolder(val binding: ItemCouponBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemCouponBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             binding.couponModel = item[adapterPosition]
             binding.index = adapterPosition

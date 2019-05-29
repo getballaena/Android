@@ -1,6 +1,6 @@
 package com.papered.gorae.util
 
-import android.arch.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle
 
 class LifecycleOwner {
     private val callbacks = ArrayList<LifecycleCallback>()
