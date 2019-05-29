@@ -29,7 +29,7 @@ class CouponViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun gotoCouponUse(index: Int) {
-        couponId.value = couponModel.value!![index].coupon_id
+        couponId.value = couponModel.value!![index].couponId
         useCoupon.call()
     }
 }
