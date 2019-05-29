@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-abstract class DataBindingFragment<T : ViewDataBinding> : androidx.fragment.app.Fragment() {
+abstract class DataBindingFragment<T : ViewDataBinding> : Fragment() {
 
     lateinit var rootView: View
     lateinit var binding: T
