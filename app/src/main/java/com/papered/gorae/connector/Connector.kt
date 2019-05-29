@@ -13,7 +13,7 @@ val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
 val retrofit = Retrofit
     .Builder()
-    .baseUrl("http://whale.istruly.sexy:1234")
+    .baseUrl("http://whale.istruly.sexy:1234/")
     .addConverterFactory(GsonConverterFactory.create())
     .client(client)
     .build()

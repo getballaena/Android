@@ -5,12 +5,16 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import com.papered.gorae.connector.api
 import com.papered.gorae.model.CouponModel
+import com.papered.gorae.util.SingleLiveEvent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CouponViewModel(val app: Application) : AndroidViewModel(app) {
+
     val couponModel = MutableLiveData<ArrayList<CouponModel>>()
+    val useCoupon = SingleLiveEvent<Any>()
+    val couponId = MutableLiveData<String>()
 
     fun getCoupon() {
         api.getCoupon("hello").enqueue(object : Callback<ArrayList<CouponModel>> {
@@ -22,5 +26,10 @@ class CouponViewModel(val app: Application) : AndroidViewModel(app) {
             }
 
         })
+    }
+
+    fun gotoCouponUse(index: Int) {
+        couponId.value = couponModel.value!![index].coupon_id
+        useCoupon.call()
     }
 }
