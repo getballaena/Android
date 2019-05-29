@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.main.map.MapFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="hi"/>
+    <ImageView
+            android:id="@+id/map_img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_gorae"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp"/>
 
-</FrameLayout>
+    <TextView
+            android:id="@+id/map_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:lineSpacingExtra="2sp"
+            android:gravity="center_horizontal"
+            android:text="땅따먹기 게임"
+            app:layout_constraintStart_toEndOf="@+id/map_img"
+            android:layout_marginStart="24dp"
+            app:layout_constraintTop_toTopOf="@+id/map_img"/>
+
+    <TextView
+            android:id="@+id/map_tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:lineSpacingExtra="1.5sp"
+            android:text="지도를 통해 부스의 위치를 확인해보세요!"
+            app:layout_constraintBottom_toBottomOf="@+id/map_img"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/map_tv_title"
+            app:layout_constraintStart_toEndOf="@+id/map_img"
+            android:layout_marginStart="24dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/map_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#3abcd6"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_camera_enhance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
