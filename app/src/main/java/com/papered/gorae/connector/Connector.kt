@@ -16,7 +16,7 @@ val client = OkHttpClient.Builder()
 
 val retrofit = Retrofit
     .Builder()
-    .baseUrl("url will here!")
+    .baseUrl("http://whale.istruly.sexy:1234/")
     .addConverterFactory(GsonConverterFactory.create())
     .client(client)
     .build()
