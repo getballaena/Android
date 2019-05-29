@@ -1,12 +1,20 @@
 package com.papered.gorae.connector
 
+import com.papered.gorae.model.CouponModel
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface API {
+
     @POST("auth/{deviceUUID}")
     fun auth(@Path("deviceUUID") deviceUUID: String, @Body body: HashMap<String, Any>): Call<Unit>
+
+    @GET("coupon")
+    @Headers("Content-Type: application/json")
+    fun getCoupon(@Header("deviceUUID") deviceUUID: String): Call<ArrayList<CouponModel>>
+
+    @HTTP(method = "DELETE", path = "coupon", hasBody = true)
+    @Headers("Content-Type: application/json")
+    fun deleteCoupon(@Header("deviceUUID") deviceUUID: String, @Body body: Any?): Call<Unit>
 }
+

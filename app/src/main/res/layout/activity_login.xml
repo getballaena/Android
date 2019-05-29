@@ -57,7 +57,7 @@
             app:layout_constraintEnd_toStartOf="@+id/login_guideline_right"/>
 
 
-    <android.support.design.button.MaterialButton
+    <com.google.android.material.button.MaterialButton
             style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/login_submit"
             android:layout_width="0dp"
@@ -71,6 +71,7 @@
             app:layout_constraintEnd_toStartOf="@+id/login_guideline_right"/>
 
     <androidx.constraintlayout.Guideline
+    <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/login_guideline_left"
@@ -78,6 +79,7 @@
             android:orientation="vertical"/>
 
     <androidx.constraintlayout.Guideline
+    <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/login_guideline_right"

@@ -1,10 +1,10 @@
 package com.papered.gorae.util
 
-import android.arch.lifecycle.Lifecycle
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
+import androidx.lifecycle.Lifecycle
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 
 abstract class DataBindingActivity<T : ViewDataBinding> : AppCompatActivity() {

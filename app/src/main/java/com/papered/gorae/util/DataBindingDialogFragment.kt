@@ -1,14 +1,14 @@
 package com.papered.gorae.util
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import android.os.Bundle
-import androidx.core.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-abstract class DataBindingDialogFragment<T : ViewDataBinding> : DialogFragment() {
+abstract class DataBindingDialogFragment<T : ViewDataBinding> : androidx.fragment.app.DialogFragment() {
 
     lateinit var rootView: View
     lateinit var binding: T

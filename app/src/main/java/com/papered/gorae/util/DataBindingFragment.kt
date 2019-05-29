@@ -1,15 +1,14 @@
 package com.papered.gorae.util
 
-import android.arch.lifecycle.Lifecycle
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import androidx.core.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Lifecycle
 
-abstract class DataBindingFragment<T : ViewDataBinding> : Fragment() {
+abstract class DataBindingFragment<T : ViewDataBinding> : androidx.fragment.app.Fragment() {
 
     lateinit var rootView: View
     lateinit var binding: T
