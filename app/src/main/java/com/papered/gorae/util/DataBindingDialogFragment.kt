@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-abstract class DataBindingDialogFragment<T : ViewDataBinding> : androidx.fragment.app.DialogFragment() {
+abstract class DataBindingDialogFragment<T : ViewDataBinding> : DialogFragment() {
 
     lateinit var rootView: View
     lateinit var binding: T

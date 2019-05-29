@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 
-abstract class DataBindingFragment<T : ViewDataBinding> : androidx.fragment.app.Fragment() {
+abstract class DataBindingFragment<T : ViewDataBinding> : Fragment() {
 
     lateinit var rootView: View
     lateinit var binding: T
