@@ -1,14 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.coupon.CouponFragment">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+
+        <variable
+                name="vm"
+                type="com.papered.gorae.ui.main.coupon.CouponViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="ohla"/>
+            tools:context=".ui.main.coupon.CouponFragment">
 
-</FrameLayout>
+        <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_gorae"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.093"
+                app:layout_constraintVertical_bias="0.012"
+                android:id="@+id/imageView"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="울산고래축제 쿠폰함"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintVertical_bias="0.048"
+                android:id="@+id/textView"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="축체 참여 후 획득한 쿠폰을 확인해보세요!"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:layout_marginStart="8dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintHorizontal_bias="0.119"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모든 쿠폰은 주최 부스에서 교환 및 사용 가능합니다!"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintVertical_bias="0.024"
+                android:id="@+id/textView2"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_coupon_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:couponData="@{vm.couponModel}"
+                tools:listitem="@layout/item_coupon"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

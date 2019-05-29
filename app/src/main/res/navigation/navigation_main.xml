@@ -3,13 +3,8 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/main_nav"
-            app:startDestination="@id/couponFragment">
+            app:startDestination="@id/mapFragment">
 
-    <fragment
-            android:id="@+id/couponFragment"
-            android:name="com.papered.gorae.ui.main.coupon.CouponFragment"
-            android:label="coupon_fragment"
-            tools:layout="@layout/fragment_coupon"/>
     <fragment
             android:id="@+id/mapFragment"
             android:name="com.papered.gorae.ui.main.map.MapFragment"
@@ -20,4 +15,9 @@
             android:name="com.papered.gorae.ui.main.stamp.StampFragment"
             android:label="fragment_stamp"
             tools:layout="@layout/fragment_stamp"/>
+    <fragment
+            android:id="@+id/couponFragment"
+            android:name="com.papered.gorae.ui.main.coupon.CouponFragment"
+            android:label="coupon_fragment"
+            tools:layout="@layout/fragment_coupon"/>
 </navigation>
