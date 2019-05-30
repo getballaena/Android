@@ -37,6 +37,9 @@
             android:name="com.papered.gorae.ui.main.map.QuizFragment"
             android:label="fragment_quiz"
             tools:layout="@layout/fragment_quiz">
+
+        <argument android:name="quiz"
+                  app:argType="com.papered.gorae.model.QuizModel"/>
         <action
                 android:id="@+id/action_quizFragment_to_resultFragment"
                 app:destination="@id/resultFragment"/>

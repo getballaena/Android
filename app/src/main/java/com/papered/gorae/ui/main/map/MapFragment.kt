@@ -44,6 +44,9 @@ class MapFragment : androidx.fragment.app.Fragment() {
                     200 -> {
                         map_group.visibility = View.VISIBLE
                         code_group.visibility = View.GONE
+
+                        val myTeam = response.body()!!["team"].asString
+                        map_myteam_tv.text = myTeam
                     }
                     else -> {
                         map_group.visibility = View.GONE
@@ -59,8 +62,18 @@ class MapFragment : androidx.fragment.app.Fragment() {
         })
 
         code_btn.onClick {
-            api.
+            api.joinTeam(hashMapOf("joinCode" to code_tv.text.toString())).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    
+                }
+
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    toast("인터넷 상태를 확인해주세요.")
+                }
+
+            })
         }
+
         map_fab.onClick {
             IntentIntegrator(activity).initiateScan()
         }
