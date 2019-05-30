@@ -38,8 +38,9 @@
             android:label="fragment_quiz"
             tools:layout="@layout/fragment_quiz">
 
-        <argument android:name="quiz"
-                  app:argType="com.papered.gorae.model.QuizModel"/>
+        <argument
+                android:name="quiz"
+                app:argType="com.papered.gorae.model.QuizModel"/>
         <action
                 android:id="@+id/action_quizFragment_to_resultFragment"
                 app:destination="@id/resultFragment"/>
@@ -48,5 +49,15 @@
             android:id="@+id/resultFragment"
             android:name="com.papered.gorae.ui.main.map.ResultFragment"
             android:label="fragment_result"
-            tools:layout="@layout/fragment_result"/>
+            tools:layout="@layout/fragment_result">
+        <argument
+                android:name="boothName"
+                app:argType="string"/>
+        <argument
+                android:name="isCorrect"
+                app:argType="boolean"/>
+        <action
+                android:id="@+id/action_resultFragment_to_mapFragment"
+                app:destination="@id/mapFragment"/>
+    </fragment>
 </navigation>
