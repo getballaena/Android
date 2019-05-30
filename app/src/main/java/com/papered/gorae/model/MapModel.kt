@@ -13,6 +13,7 @@ data class MapListModel(
     val boothName: String,
     @SerializedName("own_team")
     val ownTeam: String,
+    val location: String,
     val x: Int,
     val y: Int
 )

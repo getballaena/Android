@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 
 import com.papered.gorae.R
 import com.papered.gorae.connector.api
+import kotlinx.android.synthetic.main.fragment_quiz.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,6 +35,10 @@ class QuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        quiz_btn_1.onClick { solve(quiz_btn_1.text.toString()) }
+        quiz_btn_2.onClick { solve(quiz_btn_2.text.toString()) }
+        quiz_btn_3.onClick { solve(quiz_btn_3.text.toString()) }
+        quiz_btn_4.onClick { solve(quiz_btn_4.text.toString()) }
     }
 
     fun solve(answer: String) {
@@ -45,6 +51,7 @@ class QuizFragment : Fragment() {
         ).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 when (response.code()) {
+                    201 -> toast("정답입니다!")
                     205 -> toast("오답입니다!")
                     409 -> toast("앗! 다른 팀이 점령했군요 ㅠㅠ")
                 }

@@ -11,6 +11,7 @@ import com.google.gson.JsonObject
 import com.google.zxing.integration.android.IntentIntegrator
 import com.papered.gorae.R
 import com.papered.gorae.connector.api
+import com.papered.gorae.model.MapModel
 import kotlinx.android.synthetic.main.fragment_map.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
@@ -38,7 +39,38 @@ class MapFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        api.checkTeam().enqueue(object : Callback<JsonObject> {
+        api.getMap().enqueue(object : Callback<MapModel> {
+            override fun onResponse(call: Call<MapModel>, response: Response<MapModel>) {
+                when (response.code()) {
+                    200 -> {
+                        map_group.visibility = View.VISIBLE
+                        code_group.visibility = View.GONE
+
+//                        val myTeam = response.body()
+//                        map_myteam_tv.text = myTeam
+                    }
+
+                    406 -> {
+
+                    }
+
+                    408 -> {
+
+                    }
+
+                    403 -> {
+                        map_group.visibility = View.GONE
+                        code_group.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<MapModel>, t: Throwable) {
+                toast("이거뜨겠지?")
+            }
+
+        })
+        /*api.checkTeam().enqueue(object : Callback<JsonObject> {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 when (response.code()) {
                     200 -> {
@@ -59,12 +91,12 @@ class MapFragment : androidx.fragment.app.Fragment() {
                 toast("인터넷 상태를 확인해주세요.")
             }
 
-        })
+        })*/
 
         code_btn.onClick {
             api.joinTeam(hashMapOf("joinCode" to code_tv.text.toString())).enqueue(object : Callback<Unit> {
                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                    
+
                 }
 
                 override fun onFailure(call: Call<Unit>, t: Throwable) {
