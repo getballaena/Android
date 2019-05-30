@@ -1,5 +1,6 @@
 package com.papered.gorae.connector
 
+import com.google.gson.JsonObject
 import com.papered.gorae.model.CouponModel
 import retrofit2.Call
 import retrofit2.http.*
@@ -16,5 +17,10 @@ interface API {
     @HTTP(method = "DELETE", path = "coupon", hasBody = true)
     @Headers("Content-Type: application/json")
     fun deleteCoupon(@Header("deviceUUID") deviceUUID: String, @Body body: Any?): Call<Unit>
+
+    @GET("team/check")
+    fun checkTeam(): Call<JsonObject>
+
+    @
 }
 

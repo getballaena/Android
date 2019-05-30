@@ -52,4 +52,140 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+    <TextView
+            android:id="@+id/map_ilgak_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일각고래팀"
+            android:textColor="#ff5858"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/map_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/map_minke_tv"/>
+
+    <TextView
+            android:id="@+id/map_minke_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3ac244"
+            android:text="밍크고래팀"
+            app:layout_constraintStart_toEndOf="@+id/map_ilgak_tv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/map_bum_tv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/map_ilgak_tv"/>
+
+    <TextView
+            android:id="@+id/map_bum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#534df6"
+            android:text="범고래팀"
+            app:layout_constraintStart_toEndOf="@+id/map_minke_tv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/map_minke_tv"/>
+
+    <TextView
+            android:id="@+id/map_myteam_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            tools:text="나의 팀: 일각고래팀"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/map_ilgak_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/map_time"/>
+
+    <TextView
+            android:id="@+id/map_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            tools:text="남은 시간: 60:00"
+            app:layout_constraintBaseline_toBaselineOf="@+id/map_myteam_tv"
+            app:layout_constraintStart_toEndOf="@+id/map_myteam_tv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/map_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/map_myteam_tv"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:lineSpacingExtra="2sp"
+            android:gravity="center_horizontal"
+            android:text="게임 참여를 위해 인증코드를 입력해주세요!"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/code_tv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/code_linear"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/code_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="32dp"
+            android:id="@+id/code_linear"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/code_btn">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="인증 코드"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#3abcd6"
+            android:text="입력완료"
+            app:layout_constraintStart_toStartOf="@+id/code_linear"
+            app:layout_constraintEnd_toEndOf="@+id/code_linear"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/code_linear"
+            android:id="@+id/code_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"/>
+
+    <androidx.constraintlayout.widget.Group
+            android:id="@+id/code_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="code_tv,code_linear,code_btn"/>
+
+    <androidx.constraintlayout.widget.Group
+            android:id="@+id/map_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="map_img,map_tv_title,map_tv_description,map_fab,map_ilgak_tv,map_minke_tv,map_bum_tv,map_myteam_tv,map_time,map_rv"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

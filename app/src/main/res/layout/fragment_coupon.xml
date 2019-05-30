@@ -44,13 +44,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.087"
                 app:layout_constraintVertical_bias="0.048"
-                android:id="@+id/textView"/>
+                android:id="@+id/code_tv"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="축체 참여 후 획득한 쿠폰을 확인해보세요!"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/code_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

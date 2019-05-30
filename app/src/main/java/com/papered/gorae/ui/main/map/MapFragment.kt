@@ -6,11 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import com.google.gson.JsonObject
 import com.google.zxing.integration.android.IntentIntegrator
 import com.papered.gorae.R
+import com.papered.gorae.connector.api
 import kotlinx.android.synthetic.main.fragment_map.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MapFragment : androidx.fragment.app.Fragment() {
 
@@ -32,6 +38,29 @@ class MapFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        api.checkTeam().enqueue(object : Callback<JsonObject> {
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                when (response.code()) {
+                    200 -> {
+                        map_group.visibility = View.VISIBLE
+                        code_group.visibility = View.GONE
+                    }
+                    else -> {
+                        map_group.visibility = View.GONE
+                        code_group.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                toast("인터넷 상태를 확인해주세요.")
+            }
+
+        })
+
+        code_btn.onClick {
+            api.
+        }
         map_fab.onClick {
             IntentIntegrator(activity).initiateScan()
         }
