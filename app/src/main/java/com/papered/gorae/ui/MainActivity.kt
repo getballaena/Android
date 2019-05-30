@@ -1,9 +1,11 @@
 package com.papered.gorae.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.papered.gorae.R
 import com.papered.gorae.ui.main.coupon.CouponFragment
@@ -18,5 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         main_navigation.setupWithNavController(findNavController(R.id.main_container))
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val fragment = main_container as NavHostFragment
+        fragment.childFragmentManager.fragments[0].onActivityResult(requestCode, resultCode, data)
     }
 }
