@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import com.papered.gorae.model.CouponModel
 import com.papered.gorae.model.MapModel
 import com.papered.gorae.model.QuizModel
+import com.papered.gorae.model.StampModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -34,5 +35,13 @@ interface API {
 
     @GET("map")
     fun getMap(): Call<MapModel>
+
+    @GET("stamp/map")
+    @Headers("Content-Type: application/json")
+    fun getStamp(@Header("deviceUUID") deviceUUID: String): Call<ArrayList<StampModel>>
+
+    @POST("stamp")
+    @Headers("Content-Type: application/json")
+    fun postStamp(@Header("deviceUUID") deviceUUID: String, @Body body: Any?): Call<Unit>
 }
 
