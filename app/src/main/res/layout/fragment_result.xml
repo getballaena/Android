@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/result_img"
             android:layout_marginTop="8dp"/>
 
-    <android.support.design.button.MaterialButton
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/result_btn"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"

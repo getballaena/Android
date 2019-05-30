@@ -14,10 +14,6 @@ import org.jetbrains.anko.support.v4.toast
 
 class MapFragment : androidx.fragment.app.Fragment() {
 
-    companion object {
-        fun newInstance() = MapFragment()
-    }
-
     private lateinit var viewModel: MapViewModel
 
     override fun onCreateView(
@@ -35,7 +31,6 @@ class MapFragment : androidx.fragment.app.Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         map_fab.onClick {
             IntentIntegrator(activity).initiateScan()

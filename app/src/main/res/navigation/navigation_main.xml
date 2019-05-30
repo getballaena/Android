@@ -9,7 +9,14 @@
             android:id="@+id/mapFragment"
             android:name="com.papered.gorae.ui.main.map.MapFragment"
             android:label="fragment_map"
-            tools:layout="@layout/fragment_map"/>
+            tools:layout="@layout/fragment_map">
+        <action
+                android:id="@+id/action_mapFragment_to_quizFragment"
+                app:destination="@id/quizFragment"/>
+        <action
+                android:id="@+id/action_mapFragment_to_verifyFragment"
+                app:destination="@id/verifyFragment"/>
+    </fragment>
     <fragment
             android:id="@+id/stampFragment"
             android:name="com.papered.gorae.ui.main.stamp.StampFragment"
@@ -20,4 +27,23 @@
             android:name="com.papered.gorae.ui.main.coupon.CouponFragment"
             android:label="coupon_fragment"
             tools:layout="@layout/fragment_coupon"/>
+    <fragment
+            android:id="@+id/verifyFragment"
+            android:name="com.papered.gorae.ui.main.map.VerifyFragment"
+            android:label="fragment_verify"
+            tools:layout="@layout/fragment_verify"/>
+    <fragment
+            android:id="@+id/quizFragment"
+            android:name="com.papered.gorae.ui.main.map.QuizFragment"
+            android:label="fragment_quiz"
+            tools:layout="@layout/fragment_quiz">
+        <action
+                android:id="@+id/action_quizFragment_to_resultFragment"
+                app:destination="@id/resultFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/resultFragment"
+            android:name="com.papered.gorae.ui.main.map.ResultFragment"
+            android:label="fragment_result"
+            tools:layout="@layout/fragment_result"/>
 </navigation>
