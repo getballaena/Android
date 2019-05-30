@@ -2,6 +2,7 @@ package com.papered.gorae.connector
 
 import com.google.gson.JsonObject
 import com.papered.gorae.model.CouponModel
+import com.papered.gorae.model.QuizModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -21,6 +22,13 @@ interface API {
     @GET("team/check")
     fun checkTeam(): Call<JsonObject>
 
-    @
+    @POST("team")
+    fun joinTeam(@Body body: HashMap<String, String>): Call<Unit>
+
+    @GET("solve/{booth}")
+    fun getQuiz(@Path("booth") booth: String): Call<QuizModel>
+
+    @POST("solve/{booth}")
+    fun solveQuiz(@Path("booth") booth: String, @Body body: HashMap<String, String>): Call<Unit>
 }
 
