@@ -17,6 +17,7 @@ import com.papered.gorae.model.QuizModel
 import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.include_code.*
 import kotlinx.android.synthetic.main.include_notifiy.*
+import kotlinx.coroutines.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.Call
@@ -27,7 +28,7 @@ import java.util.*
 
 class MapFragment : androidx.fragment.app.Fragment() {
 
-    private lateinit var viewModel: MapViewModel
+    val job = Job()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,14 +39,11 @@ class MapFragment : androidx.fragment.app.Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MapViewModel::class.java)
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        getMap()
 
         code_btn.onClick {
             joinTeam()
@@ -79,41 +77,58 @@ class MapFragment : androidx.fragment.app.Fragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        GlobalScope.launch(Dispatchers.IO + job) {
+            while (true) {
+                getMap()
+                delay(5000)
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        job.cancel()
+    }
+
     fun getMap() {
         api.getMap().enqueue(object : Callback<MapModel> {
             override fun onResponse(call: Call<MapModel>, response: Response<MapModel>) {
-                when (response.code()) {
-                    200 -> {
-                        code_group.visibility = View.VISIBLE
-                        code_group.visibility = View.GONE
-                        notify_group.visibility = View.GONE
-                        val body = response.body()!!
-                        map_myteam_tv.text = "나의 팀: ${body.myTeam}"
-                        val sdf = SimpleDateFormat("hh:mm")
-                        map_time.text = "종료 시간: ${sdf.format(Date(body.endTimestamp))}"
-                        map_rv.layoutManager = LinearLayoutManager(context)
-                        map_rv.adapter = MapAdapter(body.map)
-                    }
-                    403 -> {
-                        code_group.visibility = View.GONE
-                        code_group.visibility = View.VISIBLE
-                        notify_group.visibility = View.GONE
-                    }
+                if (!job.isCancelled)
+                    when (response.code()) {
+                        200 -> {
+                            code_group.visibility = View.VISIBLE
+                            code_group.visibility = View.GONE
+                            notify_group.visibility = View.GONE
+                            val body = response.body()!!
+                            map_myteam_tv.text = "나의 팀: ${body.myTeam}"
+                            val sdf = SimpleDateFormat("hh:mm")
+                            sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+                            map_time.text = "종료 시간: ${sdf.format(Date(body.endTimestamp))}"
+                            map_rv.layoutManager = LinearLayoutManager(context)
+                            map_rv.adapter = MapAdapter(body.map)
+                        }
+                        403 -> {
+                            code_group.visibility = View.GONE
+                            code_group.visibility = View.VISIBLE
+                            notify_group.visibility = View.GONE
+                        }
 
-                    406 -> {
-                        code_group.visibility = View.GONE
-                        code_group.visibility = View.GONE
-                        notify_group.visibility = View.VISIBLE
-                        notify_tv.text = "아직 게임이 시작되지 않았습니다.\n조금만 기다려주세요!"
-                    }
+                        406 -> {
+                            code_group.visibility = View.GONE
+                            code_group.visibility = View.GONE
+                            notify_group.visibility = View.VISIBLE
+                            notify_tv.text = "아직 게임이 시작되지 않았습니다.\n조금만 기다려주세요!"
+                        }
 
-                    408 -> {
-                        code_group.visibility = View.GONE
-                        code_group.visibility = View.GONE
-                        notify_group.visibility = View.VISIBLE
-                        notify_tv.text = "땅따먹기 시간이 만료되었습니다!\n메인 부스로 오셔서 결과를 확인해주세요!"
+                        408 -> {
+                            code_group.visibility = View.GONE
+                            code_group.visibility = View.GONE
+                            notify_group.visibility = View.VISIBLE
+                            notify_tv.text = "땅따먹기 시간이 만료되었습니다!\n메인 부스로 오셔서 결과를 확인해주세요!"
+                        }
                     }
-                }
             }
 
             override fun onFailure(call: Call<MapModel>, t: Throwable) {
