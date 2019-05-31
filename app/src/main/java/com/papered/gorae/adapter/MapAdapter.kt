@@ -30,7 +30,7 @@ class MapAdapter(val models: ArrayList<MapListModel>) : RecyclerView.Adapter<Map
             container.background = ContextCompat.getDrawable(
                 view.context, when (models[adapterPosition].ownTeam) {
                     "밍크고래팀" -> R.drawable.back_round_green
-                    "일각고래팀" -> R.drawable.back_round_red
+                    "흑등고래팀" -> R.drawable.back_round_red
                     "대왕고래팀" -> R.drawable.back_round_purple
                     else -> R.drawable.back_round_black
                 }
