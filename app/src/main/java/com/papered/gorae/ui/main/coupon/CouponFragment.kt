@@ -4,9 +4,9 @@ import android.app.Dialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
-
 import com.papered.gorae.R
 import com.papered.gorae.adapter.CouponAdapter
 import com.papered.gorae.connector.api

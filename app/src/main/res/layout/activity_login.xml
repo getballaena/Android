@@ -45,6 +45,7 @@
             app:layout_constraintTop_toBottomOf="@+id/login_title"/>
 
     <EditText
+            android:id="@+id/login_et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/back_round_black_nonfill"
@@ -53,7 +54,6 @@
             android:hint="이름"
             app:layout_constraintStart_toStartOf="@+id/login_guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/login_description"
-            android:id="@+id/editText"
             app:layout_constraintEnd_toStartOf="@+id/login_guideline_right"/>
 
 
@@ -67,7 +67,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/login_guideline_left"
             android:text="게임시작!"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/login_et_name"
             app:layout_constraintEnd_toStartOf="@+id/login_guideline_right"/>
 
     <androidx.constraintlayout.widget.Guideline
