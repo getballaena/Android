@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login_submit.onClick {
-            api.auth(getToken(baseContext), hashMapOf("name" to login_et_name.text.toString()))
+            api.auth(getToken(baseContext)!!, hashMapOf("name" to login_et_name.text.toString()))
                 .enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                         when (response.code()) {

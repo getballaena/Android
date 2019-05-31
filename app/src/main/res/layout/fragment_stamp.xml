@@ -98,12 +98,11 @@
                 android:onClick="@{()->vm.gotoShoot()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:src="@drawable/ic_camera_enhance_black_24dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:layout_marginEnd="24dp"/>
+                app:backgroundTint="@color/colorPrimary"
+                android:layout_margin="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

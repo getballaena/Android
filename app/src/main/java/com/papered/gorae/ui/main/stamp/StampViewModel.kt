@@ -21,7 +21,7 @@ class StampViewModel(val app: Application) : AndroidViewModel(app) {
 
 
     fun getStamp() {
-        api.getStamp("hello").enqueue(object : Callback<ArrayList<StampModel>> {
+        api.getStamp().enqueue(object : Callback<ArrayList<StampModel>> {
 
             override fun onResponse(call: Call<ArrayList<StampModel>>, response: Response<ArrayList<StampModel>>) {
                 stampModel.value = response.body()
@@ -43,7 +43,7 @@ class StampViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun postStamp() {
-        api.postStamp("hello", hashMapOf("stampName" to stampName.value)).enqueue(object : Callback<Unit> {
+        api.postStamp(hashMapOf("stampName" to stampName.value)).enqueue(object : Callback<Unit> {
 
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 when (response.code()) {

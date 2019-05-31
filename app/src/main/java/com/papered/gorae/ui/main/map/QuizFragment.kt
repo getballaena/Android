@@ -35,6 +35,7 @@ class QuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        quiz_booth.text = args.boothName
         quiz_btn_1.text = args.choices[0]
         quiz_btn_2.text = args.choices[1]
         quiz_btn_3.text = args.choices[2]

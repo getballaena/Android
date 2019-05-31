@@ -15,11 +15,11 @@ interface API {
 
     @GET("coupon")
     @Headers("Content-Type: application/json")
-    fun getCoupon(@Header("deviceUUID") deviceUUID: String): Call<ArrayList<CouponModel>>
+    fun getCoupon(): Call<ArrayList<CouponModel>>
 
     @HTTP(method = "DELETE", path = "coupon", hasBody = true)
     @Headers("Content-Type: application/json")
-    fun deleteCoupon(@Header("deviceUUID") deviceUUID: String, @Body body: Any?): Call<Unit>
+    fun deleteCoupon(@Body body: Any?): Call<Unit>
 
     @GET("team/check")
     fun checkTeam(): Call<JsonObject>
@@ -38,10 +38,10 @@ interface API {
 
     @GET("stamp/map")
     @Headers("Content-Type: application/json")
-    fun getStamp(@Header("deviceUUID") deviceUUID: String): Call<ArrayList<StampModel>>
+    fun getStamp(): Call<ArrayList<StampModel>>
 
     @POST("stamp")
     @Headers("Content-Type: application/json")
-    fun postStamp(@Header("deviceUUID") deviceUUID: String, @Body body: Any?): Call<Unit>
+    fun postStamp(@Body body: Any?): Call<Unit>
 }
 

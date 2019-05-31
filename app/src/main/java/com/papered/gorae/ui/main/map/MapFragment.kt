@@ -62,7 +62,11 @@ class MapFragment : androidx.fragment.app.Fragment() {
             } else {
                 api.getQuiz(result.contents).enqueue(object : Callback<QuizModel> {
                     override fun onResponse(call: Call<QuizModel>, response: Response<QuizModel>) {
-                        findNavController().navigate(MapFragmentDirections.actionMapFragmentToQuizFragment(response.body()!!))
+                        when(response.code()){
+                            200 -> findNavController().navigate(MapFragmentDirections.actionMapFragmentToQuizFragment(response.body()!!))
+                            204 -> toast("잘못 찍으셨는데요? ㅠㅠ")
+                            205 -> toast("이미 같은 팀이 점령한 부스입니다.")
+                        }
                     }
 
                     override fun onFailure(call: Call<QuizModel>, t: Throwable) {

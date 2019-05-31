@@ -37,7 +37,6 @@ class CouponFragment : DataBindingFragment<FragmentCouponBinding>() {
             dialog.show()
             dialog.coupon_use_bt.setOnClickListener {
                 api.deleteCoupon(
-                    "hello",
                     hashMapOf(
                         "couponId" to viewModel.couponId.value,
                         "staffCode" to dialog.coupon_code_edit.text.toString()
