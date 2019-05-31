@@ -3,8 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/itemGreen_container"
-        android:background="@drawable/rou_green_nf"
+        android:id="@+id/itemMap_container"
+        android:background="@drawable/back_round_green"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp">

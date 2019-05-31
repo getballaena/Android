@@ -1,9 +1,10 @@
 package com.papered.gorae.model
 
 import com.google.gson.annotations.SerializedName
+import java.sql.Timestamp
 
 data class MapModel(
-    val leftTime: String,
+    val endTimestamp: Long,
     val map: ArrayList<MapListModel>,
     val myTeam: String
 )

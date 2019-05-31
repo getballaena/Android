@@ -28,7 +28,7 @@
             android:textColor="#000000"
             android:lineSpacingExtra="1.5sp"
             android:gravity="center_horizontal"
-            tools:text="땅따먹기 시간이 만료되었습니다!
+            android:text="땅따먹기 시간이 만료되었습니다!
 메인 부스로 오셔서 결과를 확인해주세요!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

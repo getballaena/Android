@@ -12,12 +12,8 @@ fun saveToken(context: Context, token: String) =
         it.apply()
     }
 
-fun getToken(context: Context): String {
-    if (getPref(context).getString(key, "") == "") {
-        saveToken(context, UUID.randomUUID().toString())
-    }
-    return getPref(context).getString(key, "")
-}
+fun getToken(context: Context): String = getPref(context).getString(key, "")
+
 
 fun removeToken(context: Context) =
     getPref(context).edit().let {

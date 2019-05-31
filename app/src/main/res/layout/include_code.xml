@@ -43,6 +43,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/code_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="인증 코드"/>
@@ -52,7 +53,7 @@
     <com.google.android.material.button.MaterialButton
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             app:backgroundTint="#3abcd6"
             android:text="입력완료"
             app:layout_constraintStart_toStartOf="@+id/code_linear"

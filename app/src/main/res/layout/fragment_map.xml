@@ -116,11 +116,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             app:layout_constraintTop_toBottomOf="@+id/map_myteam_tv"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     <include
-            android:id="@+id/map_group"
+            android:id="@+id/code_group"
             layout="@layout/include_code"
             android:visibility="gone"/>
 
@@ -130,14 +132,8 @@
             android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.Group
-            android:id="@+id/code_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="code_tv,code_linear,code_btn"/>
-
-    <!--<androidx.constraintlayout.widget.Group
             android:id="@+id/map_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="map_img,map_tv_title,map_tv_description,map_fab,map_ilgak_tv,map_minke_tv,map_bum_tv,map_myteam_tv,map_time,map_rv"/>-->
+            app:constraint_referenced_ids="map_myteam_tv,map_time,map_rv,map_fab"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

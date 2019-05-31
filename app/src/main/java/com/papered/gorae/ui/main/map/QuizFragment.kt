@@ -35,6 +35,11 @@ class QuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        quiz_btn_1.text = args.choices[0]
+        quiz_btn_2.text = args.choices[1]
+        quiz_btn_3.text = args.choices[2]
+        quiz_btn_4.text = args.choices[3]
+
         quiz_btn_1.onClick { solve(quiz_btn_1.text.toString()) }
         quiz_btn_2.onClick { solve(quiz_btn_2.text.toString()) }
         quiz_btn_3.onClick { solve(quiz_btn_3.text.toString()) }
@@ -51,11 +56,19 @@ class QuizFragment : Fragment() {
         ).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 when (response.code()) {
-                    201 -> toast("정답입니다!")
-                    205 -> toast("오답입니다!")
-                    409 -> toast("앗! 다른 팀이 점령했군요 ㅠㅠ")
+                    201 -> {
+                        findNavController().navigate(QuizFragmentDirections.actionQuizFragmentToResultFragment(args.boothName, true))
+                        toast("정답입니다!")
+                    }
+                    205 -> {
+                        toast("오답입니다!")
+                        findNavController().navigate(QuizFragmentDirections.actionQuizFragmentToResultFragment(args.boothName, true))
+                    }
+                    409 -> {
+                        toast("앗! 다른 팀이 먼저 점령했군요 ㅠㅠ")
+                        findNavController().popBackStack()
+                    }
                 }
-                findNavController().popBackStack()
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {

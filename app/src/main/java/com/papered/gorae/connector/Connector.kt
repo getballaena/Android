@@ -11,7 +11,7 @@ val interceptor = HttpLoggingInterceptor().apply {
 
 val client = OkHttpClient.Builder()
     .addInterceptor(interceptor)
-    .addInterceptor(interceptor)
+    .addInterceptor(DeviceUuidInterceptor())
     .build()
 
 val retrofit = Retrofit
