@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.sql.Timestamp
 
 data class MapModel(
-    val endTimestamp: Long,
+    val endTimeTimestamp: Long,
     val map: ArrayList<MapListModel>,
     val myTeam: String
 )

@@ -3,6 +3,7 @@ package com.papered.gorae.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,7 +12,9 @@ import com.papered.gorae.R
 import com.papered.gorae.ui.main.coupon.CouponFragment
 import com.papered.gorae.ui.main.map.MapFragment
 import com.papered.gorae.ui.main.stamp.StampFragment
+import com.papered.gorae.util.getToken
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

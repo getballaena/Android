@@ -2,6 +2,7 @@ package com.papered.gorae.ui.main.map
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,8 +63,12 @@ class MapFragment : androidx.fragment.app.Fragment() {
             } else {
                 api.getQuiz(result.contents).enqueue(object : Callback<QuizModel> {
                     override fun onResponse(call: Call<QuizModel>, response: Response<QuizModel>) {
-                        when(response.code()){
-                            200 -> findNavController().navigate(MapFragmentDirections.actionMapFragmentToQuizFragment(response.body()!!))
+                        when (response.code()) {
+                            200 -> findNavController().navigate(
+                                MapFragmentDirections.actionMapFragmentToQuizFragment(
+                                    response.body()!!
+                                )
+                            )
                             204 -> toast("잘못 찍으셨는데요? ㅠㅠ")
                             205 -> toast("이미 같은 팀이 점령한 부스입니다.")
                         }
@@ -109,7 +114,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
                             map_myteam_tv.text = "나의 팀: ${body.myTeam}"
                             val sdf = SimpleDateFormat("hh:mm")
                             sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
-                            map_time.text = "종료 시간: ${sdf.format(Date(body.endTimestamp))}"
+                            map_time.text = "종료 시간: ${sdf.format(Date(body.endTimeTimestamp * 1000))}"
                             map_rv.layoutManager = LinearLayoutManager(context)
                             map_rv.adapter = MapAdapter(body.map)
                         }
