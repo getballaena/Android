@@ -118,7 +118,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
                     when (response.code()) {
                         200 -> {
                             code_group.visibility = View.VISIBLE
-                            code_group.visibility = View.GONE
+                            map_group.visibility = View.GONE
                             notify_group.visibility = View.GONE
                             val body = response.body()!!
                             map_myteam_tv.text = "나의 팀: ${body.myTeam}"
@@ -130,7 +130,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
                         }
                         403 -> {
                             code_group.visibility = View.GONE
-                            code_group.visibility = View.VISIBLE
+                            map_group.visibility = View.VISIBLE
                             notify_group.visibility = View.GONE
                         }
 
