@@ -136,7 +136,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
 
                         406 -> {
                             code_group.visibility = View.GONE
-                            code_group.visibility = View.GONE
+                            map_group.visibility = View.GONE
                             notify_group.visibility = View.VISIBLE
                             notify_tv.text = "아직 게임이 시작되지 않았습니다.\n조금만 기다려주세요!"
                         }
