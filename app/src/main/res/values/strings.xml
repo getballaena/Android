@@ -7,4 +7,5 @@
     <string name="navigation_stamp">스탬프</string>
     <string name="navigation_coupon">쿠폰함</string>
     <string name="string_stamp_info">아래에 있는 카메라 버튼을 클릭하여\n각 부스마다 있는 QR코드를 촬영하면 \n스탬프를 획득하는 투어.\n 스탬프를 전부 획득시\n자동으로 쿠폰이 추가됩니다.</string>
+    <string name="string_map">아래에 있는 카메라 버튼을 클릭하여\n각 부스마다 있는 QR코드를 촬영 후\n문제를 풀어 맞추면 해당 부스를\n획득하는 방식의 땅따먹기 게임\n부스 획득시 2분동안 부스 소유권이 유지됩니다.</string>
 </resources>

@@ -1,11 +1,13 @@
 package com.papered.gorae.ui.main.map
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,6 +54,14 @@ class MapFragment : androidx.fragment.app.Fragment() {
 
         map_fab.onClick {
             IntentIntegrator(activity).initiateScan()
+        }
+
+
+        map_question_iv.setOnClickListener {
+            val dialog = Dialog(activity!!)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.dialog_map_info)
+            dialog.show()
         }
     }
 
@@ -133,7 +143,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
 
                         408 -> {
                             code_group.visibility = View.GONE
-                            code_group.visibility = View.GONE
+                            map_group.visibility = View.GONE
                             notify_group.visibility = View.VISIBLE
                             notify_tv.text = "땅따먹기 시간이 만료되었습니다!\n메인 부스로 오셔서 결과를 확인해주세요!"
                         }
