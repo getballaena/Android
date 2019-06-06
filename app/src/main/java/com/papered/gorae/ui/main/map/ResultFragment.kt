@@ -9,10 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 import com.papered.gorae.R
+import com.papered.gorae.ui.main.OnBackPressedListener
 import kotlinx.android.synthetic.main.fragment_result.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.toast
 
-class ResultFragment : Fragment() {
+class ResultFragment : Fragment(), OnBackPressedListener {
+    override fun onBackPressed() {
+        toast("메인화면으로 가기 버튼을 눌러주세요")
+    }
 
     val boothName by lazy { ResultFragmentArgs.fromBundle(arguments!!).boothName }
     val isCorrect by lazy { ResultFragmentArgs.fromBundle(arguments!!).isCorrect }

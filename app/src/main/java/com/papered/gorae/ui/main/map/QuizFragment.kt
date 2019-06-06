@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 
 import com.papered.gorae.R
 import com.papered.gorae.connector.api
+import com.papered.gorae.ui.main.OnBackPressedListener
 import kotlinx.android.synthetic.main.fragment_quiz.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
@@ -17,7 +18,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class QuizFragment : Fragment() {
+class QuizFragment : Fragment(), OnBackPressedListener {
+    override fun onBackPressed() {
+        toast("문제를 풀어주세요!")
+    }
 
     val args by lazy {
         QuizFragmentArgs.fromBundle(arguments!!).quiz

@@ -9,12 +9,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.papered.gorae.R
-import com.papered.gorae.ui.main.coupon.CouponFragment
-import com.papered.gorae.ui.main.map.MapFragment
-import com.papered.gorae.ui.main.stamp.StampFragment
-import com.papered.gorae.util.getToken
+import com.papered.gorae.ui.main.OnBackPressedListener
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,4 +27,15 @@ class MainActivity : AppCompatActivity() {
         val fragment = main_container as NavHostFragment
         fragment.childFragmentManager.fragments[0].onActivityResult(requestCode, resultCode, data)
     }
+
+    override fun onBackPressed() {
+        val fragmentList = supportFragmentManager.fragments
+        for (fragment in fragmentList) {
+            if (fragment is OnBackPressedListener) {
+                (fragment as OnBackPressedListener).onBackPressed()
+            }
+        }
+    }
+
 }
+
