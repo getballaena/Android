@@ -117,8 +117,8 @@ class MapFragment : androidx.fragment.app.Fragment() {
                 if (!job.isCancelled)
                     when (response.code()) {
                         200 -> {
-                            code_group.visibility = View.VISIBLE
-                            map_group.visibility = View.GONE
+                            code_group.visibility = View.GONE
+                            map_group.visibility = View.VISIBLE
                             notify_group.visibility = View.GONE
                             val body = response.body()!!
                             map_myteam_tv.text = "나의 팀: ${body.myTeam}"
@@ -129,7 +129,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
                             map_rv.adapter = MapAdapter(body.map)
                         }
                         403 -> {
-                            code_group.visibility = View.GONE
+                            code_group.visibility = View.VISIBLE
                             map_group.visibility = View.VISIBLE
                             notify_group.visibility = View.GONE
                         }
@@ -151,7 +151,6 @@ class MapFragment : androidx.fragment.app.Fragment() {
             }
 
             override fun onFailure(call: Call<MapModel>, t: Throwable) {
-                toast("이거뜨겠지?")
             }
 
         })
