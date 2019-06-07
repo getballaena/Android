@@ -79,8 +79,9 @@ class MapFragment : androidx.fragment.app.Fragment() {
                                     response.body()!!
                                 )
                             )
-                            204 -> toast("잘못 찍으셨는데요? ㅠㅠ")
+                            204 -> toast("존재하지 않는 부스입니다.")
                             205 -> toast("이미 같은 팀이 점령한 부스입니다.")
+                            409 -> toast("다른 팀이 점령한 부스입니다.")
                         }
                     }
 
@@ -130,7 +131,7 @@ class MapFragment : androidx.fragment.app.Fragment() {
                         }
                         403 -> {
                             code_group.visibility = View.VISIBLE
-                            map_group.visibility = View.VISIBLE
+                            map_group.visibility = View.GONE
                             notify_group.visibility = View.GONE
                         }
 

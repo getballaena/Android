@@ -55,10 +55,15 @@
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:lineSpacingExtra="1.5sp"
+            android:textSize="18sp"
             tools:text="다음 중 사실이 아닌 것은?"
             app:layout_constraintEnd_toEndOf="@+id/quiz_booth"
             app:layout_constraintStart_toStartOf="@+id/quiz_booth"
             android:layout_marginTop="32dp"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/quiz_booth"/>
 
     <com.google.android.material.button.MaterialButton

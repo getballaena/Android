@@ -40,6 +40,7 @@ class QuizFragment : Fragment(), OnBackPressedListener {
         super.onViewCreated(view, savedInstanceState)
 
         quiz_booth.text = args.boothName
+        quiz_quiz.text = args.content
         quiz_btn_1.text = args.choices[0]
         quiz_btn_2.text = args.choices[1]
         quiz_btn_3.text = args.choices[2]
@@ -62,12 +63,22 @@ class QuizFragment : Fragment(), OnBackPressedListener {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 when (response.code()) {
                     201 -> {
-                        findNavController().navigate(QuizFragmentDirections.actionQuizFragmentToResultFragment(args.boothName, true))
+                        findNavController().navigate(
+                            QuizFragmentDirections.actionQuizFragmentToResultFragment(
+                                args.boothName,
+                                true
+                            )
+                        )
                         toast("정답입니다!")
                     }
                     205 -> {
                         toast("오답입니다!")
-                        findNavController().navigate(QuizFragmentDirections.actionQuizFragmentToResultFragment(args.boothName, true))
+                        findNavController().navigate(
+                            QuizFragmentDirections.actionQuizFragmentToResultFragment(
+                                args.boothName,
+                                false
+                            )
+                        )
                     }
                     409 -> {
                         toast("앗! 다른 팀이 먼저 점령했군요 ㅠㅠ")
