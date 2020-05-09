@@ -1,7 +1,7 @@
 # Get_Ballaena(울산고래축제)
 > 울산고래축제에서 사용된 땅따먹기 어플리케이션 게임입니다.
 
-[PlayStore](https://play.google.com/store/apps/details?id=com.papered.gorae.please)
+<a href='https://play.google.com/store/apps/details?id=com.papered.gorae.please&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 ![고래 정리본](https://user-images.githubusercontent.com/26649912/62793447-98daf980-bb0c-11e9-9b11-b8bd27313565.PNG)
 
